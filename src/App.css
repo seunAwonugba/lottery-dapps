@@ -1,0 +1,108 @@
+.header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    /* fix navbar to the top */
+    z-index: var(--z-fixed);
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: var(--header-height);
+    padding: 1rem;
+}
+
+.nav-logo {
+    color: var(--first-color);
+    transition: color 0.4s;
+    font-size: var(--h2-font-size);
+    font-family: var(--second-font);
+    margin: 0;
+}
+
+.nav-toggle,
+.nav-close {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+}
+
+.nav-cta {
+    background-color: var(--first-color);
+    color: var(--title-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0.75rem 1.5rem;
+}
+
+.nav-cta:hover {
+    background-color: transparent;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    /* flex-direction: column;
+  row-gap: 2.5rem; */
+}
+
+.nav-link {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    transition: color 0.4s;
+}
+
+.nav-link:hover {
+    color: var(--first-color);
+}
+
+.nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+.show-menu {
+    right: 0;
+}
+
+/* implement style only when the screen is 768px wide and below */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: hsla(0, 0%, 6%, 0.2);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        width: 80%;
+        height: 100%;
+        padding: 6rem 3rem 0;
+        transition: right 0.4s;
+    }
+}
+
+/* implement style only when the screen is 1150px wide and above */
+
+@media screen and (min-width: 1000px) {
+    nav {
+        height: calc(var(--header-height) + 1rem);
+    }
+    .nav-toggle,
+    .nav-close {
+        display: none;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        column-gap: 2.5rem;
+    }
+}
