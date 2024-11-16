@@ -1,7 +1,9 @@
+import { Join } from "../components/Join";
+
 export const Home = () => {
     return (
         <>
-            <div>Home</div>
+            <Join />
         </>
     );
 };

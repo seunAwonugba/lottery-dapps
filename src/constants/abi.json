@@ -1,0 +1,224 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_entranceFee",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "vRFConsumerBaseV2",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_keyHash",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_s_subscriptionId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint32",
+                "name": "_callbackGasLimit",
+                "type": "uint32"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_interval",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [],
+        "name": "Lottery_Insufficient_ETH_Balance",
+        "type": "error"
+    },
+    { "inputs": [], "name": "Lottery_LotteryStateNotOpen", "type": "error" },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "balance", "type": "uint256" },
+            {
+                "internalType": "uint256",
+                "name": "numberOfPlayers",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "lotteryState",
+                "type": "uint256"
+            }
+        ],
+        "name": "Lottery_UpkeepNotNeeded",
+        "type": "error"
+    },
+    { "inputs": [], "name": "Lottery_WinnerTransferFailed", "type": "error" },
+    {
+        "inputs": [
+            { "internalType": "address", "name": "have", "type": "address" },
+            { "internalType": "address", "name": "want", "type": "address" }
+        ],
+        "name": "OnlyCoordinatorCanFulfill",
+        "type": "error"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "player",
+                "type": "address"
+            }
+        ],
+        "name": "NewLotteryPlayer",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "requestedId",
+                "type": "uint256"
+            }
+        ],
+        "name": "RequestedRandomNumberId",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "winner",
+                "type": "address"
+            }
+        ],
+        "name": "Winner",
+        "type": "event"
+    },
+    {
+        "inputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+        "name": "checkUpkeep",
+        "outputs": [
+            { "internalType": "bool", "name": "upkeepNeeded", "type": "bool" },
+            { "internalType": "bytes", "name": "", "type": "bytes" }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getEntranceFee",
+        "outputs": [
+            { "internalType": "uint256", "name": "", "type": "uint256" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getInterval",
+        "outputs": [
+            { "internalType": "uint256", "name": "", "type": "uint256" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getLotteryState",
+        "outputs": [
+            {
+                "internalType": "enum Lottery.LotteryState",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getNumberOfPlayers",
+        "outputs": [
+            { "internalType": "uint256", "name": "", "type": "uint256" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            { "internalType": "uint256", "name": "index", "type": "uint256" }
+        ],
+        "name": "getPlayer",
+        "outputs": [
+            { "internalType": "address", "name": "", "type": "address" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getPlayers",
+        "outputs": [
+            {
+                "internalType": "address payable[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getWinner",
+        "outputs": [
+            { "internalType": "address", "name": "", "type": "address" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "joinLottery",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+        "name": "performUpkeep",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "requestId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256[]",
+                "name": "randomWords",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "rawFulfillRandomWords",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
